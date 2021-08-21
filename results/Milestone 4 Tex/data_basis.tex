@@ -1,0 +1,289 @@
+\section{Data Basis}
+
+% Task: Explain which data we need (Covid, co2), what kind of data we need (recent, monthly), which data we found, which data is missing (monthly co2 emissions)
+
+Projects like this one heavily rely on high-quality data. We therefore put a lot of effort in finding and preprocessing data. In the end, we do by far not use all of the data. Nevertheless, we think it was good to always have several data sets in our repository that we could easily access. We also found out that it is not as easy as expected to gather useful data. To decide which data we can use, we thought of three criteria that the data has to fulfill.
+
+\begin{itemize}
+	\item Is it recent data?
+	\item Does the data have at least a monthly resolution?
+	\item Is the data available for all countries we consider?
+	\item Is the data accessible for free?
+\end{itemize}
+
+A lot of data sets unfortunately did not match our criteria. If we still needed the data, we had to find other ways around, as we did for the \co emissions for example. Here, we were only able to find yearly data until 2018. Recent \co emission data does not exist, as it is not measured directly but only calculated after the year already passed. Our way around will be covered in more detail in the following section. Basically, we use indicators that represent one of the five \co emitting sectors. We were able to find indicator data that matched our criteria and used that to deduce monthly \co data.
+
+
+\section*{Sources and collection}
+% Introductory text
+We will only present and discuss the data sets we actually use in the end here. We only want to focus on the main aspects here, as we already showed and explained most of the data we found -- regardless of if we used it in the end. Three different categories of data are necessary in the end to come to a result. These categories are COVID-19 data, indicator data and Paris climate agreement data.
+
+% Task: explain where we got which data sets from and how we accessed them (API, csv download)
+
+%tod: which data is actually used?, check
+% I assume we use:
+% covid: bing, 
+% sectors: mobility: apple, other industries: steel data (world and US), power industry: ..., construction: ...
+% Paris goal: the paris goals, check report 2 for the link 
+
+%tod: shorten all this text below to what we actually need. Explain which data we used but also explain which data we disregarded if applicable, check
+
+
+
+
+
+
+% Data sets
+
+% covid: Bing, 
+\subsection*{COVID-19 data}
+\begin{itemize}
+	\item Frequently updated datasets with high temporal resolution, available for every country
+	\item Will be used to find the influence of COVID-19 case numbers on \co emissions
+	\item Little pre-processing required
+\end{itemize}
+
+%tod: parts of this belong to pre-processing and conclusion/crit. assessment, check
+%todo: proof read
+The dataset is provided by the Bing search engine~\cite{Bing}. It is a CSV file, hosted on GitHub and updated daily by Microsoft. They collect data from multiple reliable sources, including WHO, state health departments, Wikipedia, etc.
+Since it is hosted as a single file on GitHub, accessing the data in real-time is pretty straight-forward, by just providing the link to the file. The dataset is divided in daily number of cases, deaths and recoveries. Moreover, there are samples for administrative regions within the countries and additional features, provided for each sample. These features  include last update date, coordinates and the country name in multiple ISO formats.
+
+Having detailed COVID-19 data is a necessity for our research, since the effect of the pandemic on \co emissions will be researched. To summarize, the dataset is frequently updated, easy to access and use and has detailed information on cases. Since we can access temporal data from individual countries throughout the pandemic, it can be used to model the correlation between COVID-19 cases and \co emissions.
+
+
+%---------------------------------------------------------------------
+%********************************************************************************************
+%---------------------------------------------------------------------
+
+
+% sectors: 
+\subsection*{Indicator data}
+%tod: mention that we have no data for China! China is very strict with giving away sensible data, check
+%todo: proof read
+
+The classification by sectors is given by the EDGAR report~\cite{crippa2019fossil}. We present all indicators we have used for the individual sectors and give a quick overview as well.
+
+% mobility
+\textbf{Mobility: Apple maps}
+\begin{itemize}
+	\item Divided in three modes of transportation, frequently updated but only available for 2020
+	\item Easy to use, little pre-processing required
+	\item No mobility data available for China
+\end{itemize}
+% apple
+Mobility behavior relates to various aspects in our life. The database of Apple's mobility trend report is updated daily and reflects the amount of requests for directions per day in \textit{Apple maps}~\cite{Apple}. The data is normalized with a baseline on January 13th, 2020, and shows the further development in percent in respect to this baseline. In total the datasets is split up into data for driving, walking and transit data. We only used driving and transit mobility data, as we assumed the \co footprint of walking to be relatively small in comparison to the other two. Transit data is not available for every country though.
+
+Unfortunately, we could not gather mobility data for China, as it was neither in the Apple mobility data set nor in the Google mobility data set. This can be directly attributed to China's restrictive handling of sensitive data. We also tried to gather information from \textit{Baidu Maps}, China's \textit{Google Maps} equivalent so-to-say. However, this proved to be very difficult, as the files are prepared in Chinese and nobody in our team is able to read Chinese. 
+
+Source: [\url{https://covid19.apple.com/mobility}]
+
+
+%---------------------------------------------------------------------
+
+% power
+\vspace{1em}
+\textbf{Power industry: Several indicators}
+\begin{itemize}
+	\item Four indicators. Two with global scope and other two only available for European countries.
+	\item Monthly resolution. Data is updated until the required dates and starting point is different depending on the indicator. In spite of that, the smallest range provided by the indicators is enough for the study.
+	\item Datasets are easy to access and work with. It was not necessary a considerable pre-processing. 
+\end{itemize}
+
+The emissions produced by this sector refer to power and heat generation plants (public \& car manufacturers for example). It is the main source of greenhouse gas emissions. We decided to explore some indicators which were monthly updated to get an intuition. We then tried to find the one indicator out of that correlates the most to the countries \co emissions.
+
+\newpage
+
+\begin{itemize}
+	\item \textbf{Natural gas prices:} Source: U.S. Energy Information Administration\newline
+	[\url{https://datahub.io/core/natural-gas}]
+	\item \textbf{Brent spot prices:} Source: U.S. Energy Information Administration\newline
+	[\url{https://datahub.io/core/oil-prices#data}]
+	\item \textbf{Electricity, gas, steam and air conditioning supply:} Source: European Commission\newline
+	[\url{https://ec.europa.eu/eurostat/web/covid-19/data}]
+	\item \textbf{Supply oil:} Source: European Commission\newline
+	[\url{https://ec.europa.eu/eurostat/web/covid-19/data}]
+\end{itemize}
+
+Once we have the most correlated indicator, we assumed the emissions have same behavior. In this case we get monthly resolution and we are able to explore the impact of Covid-19 from January to June in 2020.
+
+Performing a time series prediction from January, we have theoretical values of the indicator if Covid-19 would not have been presented. Then we can compare both time series and get a conclusion about this sector.
+
+
+
+%---------------------------------------------------------------------
+
+% other industries
+\vspace{1em}
+\textbf{Other industries: Steel production}
+\begin{itemize}
+	\item Monthly data for all countries only available for 2019 and 2020
+	\item US data available over a longer period of time, used to determine a general seasonality
+	\item Little pre-processing required
+\end{itemize}
+% world wide steel data
+% US steel data (seasonality)
+This sector is called \textit{other industries}, which one might misunderstand at the first glance. We wanted to be consistent with the sector distribution we found, where this sector is labeled other industry. Actually, it simply refers to all industry except \textit{power industry}.
+
+After conducting some research on how to find suitable indicators for this sector, we found out that global steel production fits our needs. Monthly data is readily available and data researchers are able to predict a country's economic growth with it~\cite{Ravazzolo2020}.
+Furthermore, \textit{Le Quéré et al.} model monthly \co data of the industry sector using US steel production data as well~\cite{LeQuere2020}.
+We found recent data of worldwide steel production from January 2019 on.
+For a longer period of time, we only found US steel production data,  ranging from mid 2015 until mid 2020.
+
+In contrast to \textit{Le Quéré et al.}, we wanted to use each country's own steel production and not only US data. However, only recent data from 2019 until now is available for free for every country considered in this work. Obviously, one can not find seasonality trends from that. Thus, we use the recent data we have to find a preliminary indicator without seasonality adjustments for each country first. We then use US steel production data to find a seasonality trend. Furthermore, we assume here that we can transfer this seasonality adjustment to all other countries as well.
+
+\begin{itemize}
+	\item \textbf{US steel production:} Source: Federal reserve bank of St. Louis\newline
+	[\url{https://fred.stlouisfed.org/series/IPG3311A2S}]
+	\item \textbf{Worldwide steel production:} Source: worldsteel.org\newline
+	[\url{https://www.worldsteel.org/steel-by-topic/statistics/steel-data-viewer/MCSP_crude_steel_monthly/CHN/IND}]
+
+\end{itemize}
+
+%---------------------------------------------------------------------
+\newpage
+
+% buildings/ construction
+\vspace{1em}
+\textbf{Buildings: Several indicators}
+\begin{itemize}
+	\item Employment rate not updated recently
+	\item Other indicators are available in monthly resolution
+	\item Easy to use, little pre-processing required
+\end{itemize}
+%Introduction
+The emissions of the buildings sector is composed of stationary combustion and the construction of buildings. In 2018, it had an average contribution of 10.9\% to the worlds greenhouse gas emissions. 
+Unfortunately, the construction industry employment dataset was only updated until 2018, which is the reason why we chose to limit our datasets to the ones presented below:
+
+\begin{itemize}
+	\item \textbf{Producer price index by commodity for metals and metal producs: Iron Steel.}
+	Source: Federal reserve Bank of St. Louis \quad
+	[\url{https://fred.stlouisfed.org/series/WPU101}]
+	\item \textbf{Producer Price index by industry: cement and concrete product manufacturing.}
+	Source:  Federal reserve Bank of St. Louis\newline
+	[\url{https://fred.stlouisfed.org/series/PCU32733273}]
+	\item \textbf{Industrial Production: Durable Goods: Cement and concrete products.}
+	Source:  Federal reserve Bank of St. Louis \quad
+	[\url{https://fred.stlouisfed.org/series/IPG3273S}]
+	\item \textbf{Total construction spending.}
+	Source:  Federal reserve Bank of St. Louis\newline
+	[\url{https://fred.stlouisfed.org/series/TTLCONS}]
+\end{itemize}
+
+The general idea was that the price should correlate with the demand for the product. Together with the assumption that the construction industry consumes a significant amount of the worlds concrete and steel production, the hypothesis is that we can use the prices as indicators in a machine learning model that is able to predict the emissions in 2020 based on previous price development.
+
+We could observe that a slight correlation can already be seen on the global scale. Of course, different countries are impacted differently from the prices. 
+
+
+%---------------------------------------------------------------------
+
+\vspace{1em}
+\textbf{Other sectors: No indicators, steady output} %mainly agriculture
+\begin{itemize}
+	\item Main contributors are cattle, rice and soy bean production
+	\item No data available that matches our criteria
+	\item Make assumption that agriculture is not affected by COVID-19
+\end{itemize}
+%tod: state that we could not find useful, monthly data. Be sad. Write that we assume no changes from what we found. Have fun reading through this part and look for what we need, check
+
+The main contributor to this sector is agriculture. In 2018, it had an average contribution of 12.56\% to the worlds greenhouse gas emissions.
+
+Livestock farming has the greatest impact on \co emission in this sector. Especially cattle farming has a huge impact on the greenhouse gas emissions not only by breathing but also deforestation for fodder production. 
+The greenhouse gas emissions profile for plant production differs significantly from the one of livestock farming. Emissions come from naturally variable biological processes that are numerous and complex, and managing these unavoidable emissions from biological processes is difficult. Plant production naturally traps carbon in the soil and biomass during soil processes, also plants absorb \co from the atmosphere by photosynthesis. The emission results from the use of organic and inorganic fertilizers in the soil, as well as from the activity of microorganisms in the process of denitrification and nitrification. Main contributors to plant production are rice and soybean production.
+
+Despite doing a lot of literature research, where we gathered the theoretical knowledge explained above, we could not come up with a proper indicator.
+Unfortunately, we were not able to find a single data set that matched our criteria. We only found outdated, yearly data for cattle, rice and soybean production.
+
+We thus assume that there is not a big change in \co emissions by this sector. Even though there is an ongoing pandemic, people will still have to eat. Especially rice and soybean are two very basic foods almost everybody can afford. For cattle farming, we also think that there is not much changing. The cattle is still alive and we expect a more or less steady population, only dependent on the usual seasonality.
+
+%---------------------------------------------------------------------
+%********************************************************************************************
+%---------------------------------------------------------------------
+
+% international agreements
+%todo: proof read
+\subsection*{International agreements}
+\begin{itemize}
+	\item Highly non-uniform, individual text documents spanning several pages for every country
+	\item Eight main contributors (including EU) accounted for more than 70\% of the worlds greenhouse gas emissions in 2017, thus most relevant for our project
+	\item A lot of non-automatable pre-processing  required, scope thus limited to their most specific goals
+\end{itemize}
+
+%tod: adjust this, sort it to the correct parts, check
+The great challenge in finding data about each country's goals, is that every country defines their own goals, without a greater frame. Thus, countries can for example define a cut in greenhouse gas emissions given as a percentage referring to the emissions in a certain year. It is also possible to state a total amount of greenhouse gases a country wants to reduce its emissions. Also, in some nationally determined contributions (NDCs), countries state that they will build more climate-friendly energy plants. Other, mainly less industrialized countries had a mix of unconditioned and conditioned goals. From these few examples, we can already deduce that the data we can gather from the NDCs is highly non-uniform. A summary of all NDCs can be found at [\url{https://www.carbonbrief.org/paris-2015-tracking-country-climate-pledges}].
+
+The data we gathered is crucial for our project. With the data, we can compare the greenhouse gas reduction due to the COVID-19 pandemic with the actual goals each country set for itself. From that, we can quantify how much this reduction contributes to the goals. As we have data of the emitters accounting for over two thirds of global greenhouse gas emissions, we not only see how COVID-19 related emission reductions help some individual countries to reach their goals but also see its global impact. For this reason, the data about emission reduction goals -- along with COVID-19 and greenhouse gas emission data -- counts to the most important data sets of our project.
+
+\newpage
+
+\section*{Preprocessing}
+
+Here, we state what we had to pre-process in the data sets if applicable. For some of the sectors we did not have to pre-process the data at all and thus skip it here.
+% Task: Explain what kind of preprocessing we had to do and which methods we used
+
+%tod: the task. Extract some of the information from the text above, check
+%todo: proof read
+\subsection*{COVID-19}
+Smaller administrative regions of countries were cleaned from the dataset since we are looking at the emission goals of countries and processing data for smaller administrative regions would be time consuming.
+
+The downside of this dataset is that it does not include any population data, so to calculate the ratios of cases, deaths, and recoveries to the general population, the population for each country had to be accessed from a different dataset~\cite{PopulationData}. We added this accordingly.
+%---------------------------------------------------------------------
+% sectors
+% mobility: Apple
+
+\subsection*{Apple mobility data set}
+The pre-processing of the Apple data mainly consists of specifying the information to extract from the dataset. Therefore it has to be chosen from the three different transport types driving, walking and transit. Additionally, the countries to be extracted have to be specified. If data for the requested country is not available, this country will be ignored in further processing steps. By use of this structure, we are then able to dynamically extract the kind of information we need depending on our future research focus. After extracting the relevant information from the CSV file and dropping the irrelevant ones, the data is restructured as a pivot table in order to separate the data by countries and index the samples by date. Missing values are filled with the last valid sample.
+
+We then regrouped the data of 26 out of 28 EU countries (Cyprus and Malta were not available). Furthermore, we applied a 7-day \textit{moving average} filter, to account for changes throughout the week. Also, we had to calculate China's mobility indicator from other countries' mobility data and do a few assumptions, for example shifting the minimum by one month.
+
+\subsection*{Power industry}
+%todo: ask ion and daniel
+For the power industry we have to do only little pre-processing, mainly normalizing all indicators to be able to compare them better to each other and clean the data sets such that they all start at the same year.
+
+%---------------------------------------------------------------------
+
+% international agreements
+\subsection*{International agreements}
+%todo: proof read
+
+Unfortunately, there is no readily available data about the NDCs. This means, our team would have to read through every NDC and extract the relevant information by hand, consuming an incredible amount of manpower. Luckily, we found a website\footnote{See \url{https://www.carbonbrief.org/paris-2015-tracking-country-climate-pledges}}, in which  all NDCs are summarized to the very core of information. From this, we started to extract the  designated reduction in greenhouse gas emissions for several countries. However, we quickly realized that this would still consume too much man power. Therefore, we decided to only take a closer look at the eight largest contributors, covering more than 70\% of the worlds greenhouse gas emissions in 2017.\footnote{See \url{https://www.worldometers.info/co2-emissions/}} These contributors are China, the US, the EU, India, Brazil, Russia, Japan and Canada in descending order.
+
+Most of the contributors we considered stated a range of emission reduction they aim for. To compare the data more easily, we simply took the mean of minimum and maximum percentage of emission reduction in these cases. Apart from that, the data is rather uniform and we thus did not have to pre-process it any more. To the data we had from the website\footnote{See \url{https://www.carbonbrief.org/paris-2015-tracking-country-climate-pledges}}, we added the share of \co  emissions in 2012 and 2017 and the total \co  emissions in the referenced year.
+
+\section*{Critical assessment}
+
+% Task: Explain whats problematic: access to monthly data for students difficult, no data for agriculture, workload too high for all paris goals. => assumptions: no change on agriculture, 8 biggest countries, China mobility etc. Discuss these assumptions
+
+%todo: the task
+As this is a students project only, we have limited financial and human resources unfortunately. Therefore, we had to make some assumptions and limit ourselves to some main points.
+Low financial resources mean that many data sets are unavailable to us as they require a paid membership. This is unfortunate but nothing we can change. It also does not affect us that much, as we were still able to find a lot of free data. 
+Limited human resources however is more of an issue to our project. If we had more man power, we could do a far more thorough search for data and go through a lot more of the NDCs for the Paris agreement. For this reason we could for example only look at the eight main \co emitting countries.
+
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

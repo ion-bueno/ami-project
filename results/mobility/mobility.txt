@@ -1,0 +1,15 @@
+Datasets: google, apple, flightradar, opensky
+
+Google-Keys:
+
+
+Apple-Keys:
+transportation type x region x time
+
+Flightradar-Keys
+total flights, commercial flights and their respective moving averages x time
+
+Opensky-Keys
+single flights
+-> Preprocessing
+flighthours accumulation per day x time

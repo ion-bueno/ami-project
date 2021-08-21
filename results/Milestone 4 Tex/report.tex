@@ -1,0 +1,112 @@
+%================================================================================
+%=============================== DOCUMENT SETUP =================================
+%================================================================================
+
+\documentclass[lang=english,inputenc=utf8,fontsize=10pt]{ldvarticle}
+
+\usepackage{parskip}
+\usepackage{subfig} % figures float
+\usepackage{ifthen}
+\usepackage{comment}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{soul}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{tabularx}
+\usepackage{lipsum}
+\usepackage{subfloat} % equations float
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\usepackage{float}
+\newcommand{\cmark}{\ding{51}}% checkmark
+\newcommand{\xmark}{\ding{55}}% xmark
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue,
+	citecolor=black
+}
+
+
+\definecolor{lightgray}{rgb}{0.75,0.75,0.75}
+
+\newcommand{\co}{\text{CO\textsubscript{2} }}
+
+
+%================================================================================
+%================================= TITLE PAGE ===================================
+%================================================================================
+
+\hypersetup{
+	pdftitle={Group 1: Data Analysis Pipeline},
+	pdfsubject={stat.ML},
+	pdfauthor={Philipp~Krüger},
+	pdfkeywords={Datasets, COVID-19, Mobility Data, CO2 Data},
+}
+
+\title{\vspace{-1em}Impact of COVID-19 on \co Emissions}
+\subtitle{Final Report, \href{https://drive.google.com/drive/folders/1tArOlfeWDrt7ALLM4qA119iYI_JEB7uF?usp=sharing}{Video Link}, \href{https://ami-group1-dashboard.herokuapp.com/}{Front End}}
+\author{Bayrakceken, Kudret Aras\\
+	03669629
+	\and
+	Belkhiria, Zied\\
+	03653792
+	\and
+	Bueno Ulacia, Ion\\
+	03726897
+	\and
+	Egger, Maximilian\\
+	03735004
+	\and
+	Kern, Max-Emanuel\\
+	03673151
+	\and
+	Krüger, Philipp \\
+	03673587
+	\and
+	Martín Cruz, Daniel\\
+	03727385
+	\and
+	Tarasewicz, Damian\\
+	03734755
+}
+
+\date{\today}
+
+\begin{document}
+
+
+\maketitle
+\thispagestyle{empty}
+%todo: shorten
+\begin{abstract}
+In this report, we want to find the correlation of COVID-19 case numbers and the \co emissions of a country. From this, we want to deduce if and to what extent the outbreak of the pandemic helps countries to reach their Paris agreement climate goals. We explain our model and which methods we used to obtain our results. Several machine learning methods are implemented and utilized to predict the behavior of \co emissions for the eight main \co emitting countries.  We assume that for each \co emitting sector, we can introduce an indicator where recent, monthly data is readily available. Then, we extract the behavior of \co emissions from these indicators for each sector and combine the sectors later. We thus obtain the total \co emissions as a result and discuss its validity. We then compare the \co emissions to the COVID-19 case numbers and evaluate the impact of the pandemic on reaching climate goals for each country. We find a positive answer to our research question, the reasons seem to be more complex than initially anticipated however. %todo: narrow down reasons
+\end{abstract}
+
+\vspace{1.5em}
+\hrule
+\setcounter{tocdepth}{1}
+\tableofcontents
+\vspace{1.5em}
+\hrule
+\newpage
+
+\include{motivation}
+\include{project_description}
+\include{data_basis}
+\include{data_model}
+\include{results}
+\include{discussion}
+\include{conclusion}
+
+
+\include{comments}
+\include{update_timeline}
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+
+\end{document}

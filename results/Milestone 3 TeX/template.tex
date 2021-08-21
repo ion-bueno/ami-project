@@ -1,0 +1,169 @@
+\documentclass{article}
+
+
+
+\usepackage{arxiv}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{lipsum}		% Can be removed after putting your text content
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{siunitx} 	% for SI units
+\usepackage{textcomp}
+\usepackage{subfloat} % subfigures
+
+%% small toc
+\usepackage{setspace, tocloft}
+
+%Modifies line spacing of the ToC
+\setlength\cftparskip{-1.0pt}
+\setlength\cftbeforesecskip{6.3pt}
+\setlength\cftaftertoctitleskip{2pt}
+
+%Makes dots after sections/subsections: Sections 1., 2.1., etc
+\makeatletter
+\renewcommand{\@seccntformat}[1]{\csname the#1\endcsname.\quad}
+\makeatother
+
+% new command \co that types CO_2. Definig commands with number (s.a. \co2) in latex is not really possible, so I chose \co
+\newcommand{\co}{\text{CO\textsubscript{2} }}
+
+%Makes the dots (above) appear in ToC
+\let \savenumberline \numberline
+\def \numberline#1{\savenumberline{#1.}}
+
+%More space in tables
+\def\arraystretch{1.5}
+
+
+\setcounter{secnumdepth}{4}
+
+\usepackage{titlesec}
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\title{Milestone 3: Data Analysis Pipeline}
+
+%\date{September 9, 1985}	% Here you can change the date presented in the paper title
+%\date{} 					% Or removing it
+
+\author{Bayrakceken, Kudret Aras\\
+	03669629
+	\And
+	Belkhiria, Zied\\
+	03653792
+	\And
+	Bueno Ulacia, Ion\\
+	03726897
+	\And
+	Egger, Maximilian\\
+	03735004
+	\And
+	Kern, Max-Emanuel\\
+	03673151
+	\And
+	Krüger, Philipp \\
+	03673587
+	\And
+	Martín Cruz, Daniel\\
+	03727385
+	\And
+	Tarasewicz, Damian\\
+	03734755
+}
+
+%%% Add PDF metadata to help others organize their library
+%%% Once the PDF is generated, you can check the metadata with
+%%% $ pdfinfo template.pdf
+\hypersetup{
+pdftitle={Group 1: Data Analysis Pipeline},
+pdfsubject={stat.ML},
+pdfauthor={Philipp~Krüger},
+pdfkeywords={Datasets, COVID-19, Mobility Data, CO2 Data},
+}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+In this report we provide our data analysis pipeline. We explain our model in detail and explain which methods we used to obtain our results. Several machine learning methods are introduced, set up and utilized to predict the behavior of \co emissions for the eight main \co emitting countries.  We assume that for each \co emitting sector, we can introduce an indicator where recent, monthly data is readily available. Then, we extract the aforementioned behavior of \co emissions from these indicators for each sector and combine the sectors later. We show our main result and discuss its validity at the end of this report. Currently, our front-end displays the indicators for each sector, covid related data, greenhouse gas data and our current model pipeline. Finally, we explain our further steps regarding the COVID-19 correlations, the front-end and the video.
+\end{abstract}
+
+
+% keywords can be removed
+%\keywords{Datasets \and COVID-19\and Mobility Data\and  CO2 Data}
+
+
+%\setcounter{tocdepth}{1}
+\tableofcontents
+
+%Deliverable:
+%Submit a document describing
+%the data processing pipeline
+%the set of candidate machine learning models and
+%a short summary of your preliminary assessment of candidate ML models.
+%
+%A mock-up of a front-end to use and explain the model (design).
+%A Python software, implementing a running data analysis pipeline using a simple
+%(dummy) test set for testing and verification.
+
+\newpage
+\section{Introduction}
+
+In this report, we want to introduce you to our model and discuss several aspects of it, especially its advantages and shortcomings. Eventually, we will see if our model is a valid approach. We researched a lot on data, as this is the most integral part of our project. Unfortunately, a lot of the data we found did not match our criteria of being very up-to-date, having at least a monthly resolution and being publicly accessible. We therefore came up with several ways to especially address the first two criteria.
+
+In the end, we want to see if we can say that countries with higher case numbers of COVID-19 also have less \co emissions and how this is related to one another.
+Thus, the two most important fields of data we used for our model are COVID-19 and \co data. We did not have any problems regarding COVID-19 data but had some issues with \co data. Emission data is not up-to-date and is only published as yearly emissions per country. However, the COVID-19 pandemic influences emissions on a shorter time-scale as of now. We thus had to predict and model emission data ourselves.  We first predicted yearly \co emissions in a business-as-usual scenario without COVID-19 and then estimated \co emissions with COVID-19. To do so, we used industry data and developed indicators from that. We even did this for each of the five major sectors of \co emitters of every country individually. Similar approaches can also be found in the literature, for example in~\cite{LeQuere2020}.
+
+We will discuss our model, all our approaches and all techniques in more detail in the respective sections. We used several techniques to process our data, such as moving averages, SARIMA, polynomial regression and support vector machines. The front end will present the input data we used, the model pipeline we implemented and the final answer to the research question.
+
+
+\include{assumptions_and_model_design}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{co2predictions}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{power_industry}
+\include{buildings}
+\include{transport}
+\include{other_industries}
+\include{other_sectors}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{covid_19}
+%\include{goal_fulfillment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{preliminary_assessment}
+\include{front_end_mock_up}
+\include{wrong_stuff}
+
+\section{Conclusion and Outlook}
+
+As already discussed in the respective sections, we had to come up with several assumptions throughout our project so far. Some of these assumptions can be considered fair, with some we are not really happy. Given the circumstances, we tried to be as precise and accurate as possible, taking all kinds of possibilities into account. Overall, we are confident that we predicted plausible values for the \co emissions of each country we consider for our project. Our data analysis pipeline is therefore set up and we did most of the work for our project in this Milestone. 
+
+All that is left for the next Milestone now is to compare our results and see if \co emissions correlate with COVID-19 data. Also, we will need to finalize our front-end, which should not be too much work given the current status of it. Since a live-training process on the front-end is not valuable for our project, we want to provide interactivity by offering the possibility of hypothetically changing real world scenarios to explore the impact of different pandemic developments. Of course, we will do the final video to explain our whole model in one go. This is definitely an important and integral part of our project, as it is indeed a huge project.
+
+\bibliographystyle{unsrt}
+\bibliography{references}  %%% Remove comment to use the external .bib file (using bibtex).
+%%% and comment out the ``thebibliography'' section.
+
+
+%%% Comment out this section when you \bibliography{references} is enabled.
+
+
+
+\end{document}

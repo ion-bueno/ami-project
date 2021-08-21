@@ -1,0 +1,4 @@
+Country or Territory;Station Name;WMO Station Number;Period;Statistic Description;Unit;Jan;Feb;Mar;Apr;May;Jun;Jul;Aug;Sep;Oct;Nov;Dec;Annual
+ESTONIA;TALLIN;26038;1961-1990;Mean Monthly Value;mm;45;29;29;36;37;53;79;84;82;70;68;55;667
+ESTONIA;Vilsandi;26214;1961-1990;Mean Monthly Value;mm;41;28;30;29;32;37;51;62;73;67;73;58;581
+ESTONIA;Tartu;26242;1961-1990;Mean Monthly Value;mm;29;23;26;34;53;61;71;86;65;53;48;40;589

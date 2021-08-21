@@ -1,0 +1,8 @@
+Country or Territory;Station Name;WMO Station Number;Period;Statistic Description;Unit;Jan;Feb;Mar;Apr;May;Jun;Jul;Aug;Sep;Oct;Nov;Dec;Annual
+AUSTRIA;St. Plten;11028;1961-1990;Mean Monthly Value;mm;34.0;38.0;42.0;56.0;73.0;87.0;93.0;81.0;54.0;37.0;49.0;43.0;687.0
+AUSTRIA;Wien-Hohe Warte;11035;1961-1990;Mean Monthly Value;mm;38.0;42.0;41.0;51.0;61.0;74.0;63.0;58.0;45.0;41.0;50.0;43.0;607.0
+AUSTRIA;Sonnblick;11146;1961-1990;Mean Monthly Value;mm;258.0;215.0;234.0;254.0;217.0;250.0;249.0;226.0;179.0;130.0;197.0;262.0;2671.0
+AUSTRIA;Salzburg;11150;1961-1990;Mean Monthly Value;mm;63.0;59.0;66.0;83.0;129.0;154.0;160.0;153.0;90.0;67.0;74.0;71.0;1169.0
+AUSTRIA;Klagenfurt;11231;1961-1990;Mean Monthly Value;mm;36.0;38.0;54.0;65.0;87.0;109.0;116.0;101.0;90.0;71.0;86.0;48.0;901.0
+AUSTRIA;Graz-Thalerhof;11240;1961-1990;Mean Monthly Value;mm;31.0;36.0;49.0;52.0;84.0;119.0;126.0;115.0;76.0;58.0;59.0;33.0;838.0
+AUSTRIA;Innsbruck-Uni;11801;1961-1990;Mean Monthly Value;mm;46.0;38.0;46.0;59.0;88.0;105.0;128.0;120.0;76.0;52.0;57.0;49.0;864.0

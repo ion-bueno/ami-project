@@ -1,0 +1,171 @@
+\documentclass{article}
+
+
+
+\usepackage{arxiv}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{lipsum}		% Can be removed after putting your text content
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{siunitx} 	% for SI units
+\usepackage[version=4]{mhchem}	%for chemical formulas, I hope this is the correct one --Maxl
+\usepackage{textcomp}
+
+%% small toc
+\usepackage{setspace, tocloft}
+
+%Modifies line spacing of the ToC
+\setlength\cftparskip{-1.0pt}
+\setlength\cftbeforesecskip{6.3pt}
+\setlength\cftaftertoctitleskip{2pt}
+
+%Makes dots after sections/subsections: Sections 1., 2.1., etc
+\makeatletter
+\renewcommand{\@seccntformat}[1]{\csname the#1\endcsname.\quad}
+\makeatother
+
+%Makes the dots (above) appear in ToC
+\let \savenumberline \numberline
+\def \numberline#1{\savenumberline{#1.}}
+
+
+%\renewcommand{\cftsecafterpnum}{\hspace*{7.5em}}
+%\renewcommand{\cftsubsecafterpnum}{\hspace*{7.5em}}
+
+
+\title{Milestone 2: Data Collection Pipeline}
+
+%\date{September 9, 1985}	% Here you can change the date presented in the paper title
+%\date{} 					% Or removing it
+
+\author{Bayrakceken, Kudret Aras\\
+	03669629
+	\And
+	Belkhiria, Zied\\
+	03653792
+	\And
+	Bueno Ulacia, Ion\\
+	03726897
+	\And
+	Egger, Maximilian\\
+	03735004
+	\And
+	Kern, Max-Emanuel\\
+	03673151
+	\And
+	Krüger, Philipp \\
+	03673587
+	\And
+	Martín Cruz, Daniel\\
+	03727385
+	\And
+	Tarasewicz, Damian\\
+	03734755
+}
+
+% Uncomment to remove the date
+%\date{}
+
+% Uncomment to override  the `A preprint' in the header
+%\renewcommand{\headeright}{Technical Report}
+%\renewcommand{\undertitle}{Technical Report}
+
+%%% Add PDF metadata to help others organize their library
+%%% Once the PDF is generated, you can check the metadata with
+%%% $ pdfinfo template.pdf
+\hypersetup{
+pdftitle={Group 1: Data Collection Pipeline},
+pdfsubject={stat.ML},
+pdfauthor={Philipp~Krüger},
+pdfkeywords={Datasets, COVID-19, Mobility Data, CO2 Data},
+}
+
+\begin{document}
+\maketitle
+%\begin{abstract}
+%	\lipsum[1]
+%\end{abstract}
+
+
+% keywords can be removed
+%\keywords{Datasets \and COVID-19\and Mobility Data\and  CO2 Data}
+
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+
+\section{Introduction}
+
+Our team decided on tackling research question No. 2: \textit{To what extent will the Covid-19 pandemic contribute towards reaching goals stated in international agreements}. During our research on this question, we concluded that it is best to focus on the \textit{Paris Agreement}, as it gives a greater frame also to other international agreements. The \textit{Paris Agreement} got a lot of publicity when it got ratified by most countries of the world. It thus resembles the first global, legally binding agreement to fight global warming. When the US under president Trump decided to leave the agreement and climate activists started the \textit{Fridays for Future } movement, the problem of global warming got more attention world-wide. However, as the COVID-19 pandemic began, more urgent problems arose and global warming only came in second. We now want to investigate how the ongoing pandemic affected global greenhouse gas emission and see how this could actually help fulfilling the ambitious goals of the \textit{Paris Agreement}.
+
+We searched through several fields to find recent and reliable data that we could use to investigate our question. These fields include not only COVID-19 and global greenhouse gas emission but also mobility, weather and of course international agreements. We gathered reliable data, established a data processing pipeline and visualized the data in several plots. Furthermore, we created an interactive website that displays our data. To access this website, please use the following link \url{https://ami-group1-dashboard.herokuapp.com}. The downloaded datasets can be found in our Git repository within the subfolder \textit{/datasets/}.
+
+
+
+\include{../../covid/covid}
+\include{../../greenhouse/greenhouse}
+\include{../../mobility/mobility}
+\include{../../co2goals/co2goals}
+%\include{weather/weather}
+
+
+\section{Conclusion and Outlook}
+
+In summary, we have gathered data concerning four big aspects that are important for answering to what extent the Covid-19 pandemic will contribute towards reaching the  goals stated in the Paris Agreements. Each dataset was found to be crucial for solving the task. To conclude this overview, we list our main decisions and findings:
+
+%covid
+\textbf{COVID-19:}
+\begin{itemize}
+	\item Frequently updated datasets with high temporal resolution per country.
+	\item Preferred datasets: \textbf{Bing}, \textbf{Johns Hopkins CSSE}.
+\end{itemize}
+
+
+%greenhouse gases
+\textbf{Greenhouse Gases:}
+\begin{itemize}
+	\item The datasets discriminate by type of gas, spatially, temporal and by industry sector with reasonable resolution.
+	\item Preferred datasets: \textbf{Global Monitoring Laboratory}, \textbf{Emissions Database for Global Atmospheric Research}.
+\end{itemize}
+
+%mobility
+\textbf{Mobility:}
+\begin{itemize}
+	\item By using the datasets, correlations of regional and global transport with greenhouse gas measurements are accessible.
+	\item Preferred datasets: \textbf{Apple Mobility}, \textbf{Google Mobility}, \textbf{OpenSky}.
+\end{itemize}
+
+%international agreements
+\textbf{International Agreements:}
+\begin{itemize}
+	\item The biggest eight contributors (including EU) covered more than 70\% of the worlds greenhouse gas emissions in 2017, and are therefore most relevant for the project. 
+	\item The scope was limited to their specific goals, as we had to create our own dataset from unformatted information.
+\end{itemize}
+
+%Outlook
+To address our research question even better, we have already attempted to access weather data from NASA satellites, as we want to quantify the influence of precipitation on emission measurements. All datasets mentioned above are already accessible as a pandas dataframe in our repository. With these datasets, we feel confident to start implementing a model.
+
+
+
+
+
+
+\bibliographystyle{unsrt}
+\bibliography{references,references_mobility,references_greenhouse,references_covid}  %%% Remove comment to use the external .bib file (using bibtex).
+%%% and comment out the ``thebibliography'' section.
+
+
+%%% Comment out this section when you \bibliography{references} is enabled.
+
+
+
+\end{document}

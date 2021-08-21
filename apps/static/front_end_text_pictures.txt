@@ -1,0 +1,97 @@
+1. Covid-19 cases
+Worlwide maps which show the impact of the Covid-19. You can select between infected people (cases), deaths and recoveries. In each category you can also see the total number of cases, the rate (which represents the number of cases per 100k people) and the change (new cases cases in the last day).
+
+The data used to plot this pictures comes from a free access API. It is daily updated with current data.
+@manual{Bing_covid,
+      title  = {Bing-COVID19-Data},
+      author = {Microsoft},
+      note   = "\url{https://raw.githubusercontent.com/microsoft/Bing-COVID-19-Data/master/data/Bing-COVID19-Data.csv}, visited last: \today"
+    }
+
+These plots give us an intuition about the current situation of Covid-19 in the whole world and how it is affecting to the different countries.
+    
+    
+2. Greenhouse gases
+    - CO2 Goals 
+    These plots show Paris Agreement Greenhouse Gas Emission Reduction of the 8 Biggest Contributors.
+    
+    Selecting the option of "lines" we can see how it would be developed a linear reduction per country to reach the estimated goal.
+    In the option "bubbles", final goals are compared with a straight line wich represents the 1.5ºC goal. This means the average temperate in the final date should be as much as 1.5ºC bigger than the initial date (dates depend on the country). If bubbles are above this line, the goal will be fulfilled.
+    
+    These graphs are used to compare with the obtained results and answer the research question.
+    
+    
+    - Global Greenhouse Gas Data
+    It is shown the evolution in the concentration of the main greenhouse gases: CO2, CH4, N2O and SF6. You can select between annual or monthly resolution or annual increase. Mention each gas has its own range in units, since they are measured in mole fraction.
+    
+    These data are used to study how the concentrations evolve in time and to predict them in future years.
+    
+    
+    - CO2 Data
+    Plots which show how the CO2 concentration evolve with a weekly resolution. It is measured in micro/mol. It can also be seen the emissions of CO2 by the 8 biggest contributors of greenhouse gas emissions and the emissions due to the power industry sector in Spain (and Andorra) and Germany. Emission are measured in Megatons per year.
+    
+    These data are used to predict how CO2 emissions are going to evolved, if they tend to be increased or decreased, to know how they will be if Covid-19 would not have appeared.
+    
+    
+    - Other Greenhouse Gases
+    Emissions of CH4 and N2O by the 8 biggest contributors of greenhouse gas emissions. Emission are measured in Kilotons per year.
+    
+    
+3. Sector emissions
+    - Construction
+        # Emissions
+        CO2 emissions of 8 biggest contributors by contruction sector. Emissions are measured in Megatons.
+        This sector refers to small scale non-industrial stationary combustion.
+
+        # Indicators
+        Indicators with montly resolution. They are used to predict the emission taking into account the possible effect of Covid-19. In this sector, it is used the prices of steel and concrete, as well as concrete production and construction spending. 
+        
+        # Predictions
+        Predicted emissions respect the observed ones. Observed emissions have annual resolution, whereas predicted ones are monthly. Previous indicators provide this change in time resolution. You can select between the 8 biggest contributors of greenhouse gas emissions.
+        
+    - Power
+        # Emissions
+        CO2 emissions of 8 biggest contributors by power industry sector. Emissions are measured in Megatons.
+        This sector refers to power and heat generation plants (public & autoproducers).
+
+        # Indicators
+        It is possible to select between the 8 biggest countries in terms of emissions. In this sector, depending on the country, different indicators are used. If the country is from Europe, 4 indicators are used, whereas if it is out, only 2. All indicators have monthly resolution. In the legend the name of the country represents the emissions in this sector. In the title, for each case it can be seen which indicator is more correlated with the emissions.
+        
+        # Predictions
+        Predicted indicator respect the observed one. Predicted one was calculated using a time series prediction from the moment Covid-19 starts, which provide us of the behaviour of the indicators if Covid-19 would not have appeared. Observed indicator represents the indicator taking into account the impact of Covid-19.
+        
+    - Transport
+        # Emissions
+        CO2 emissions of 8 biggest contributors by transport sector. Emissions are measured in Megatons.
+        This sector refers to mobile combustion (road & rail & ship & aviation)
+
+        # Apple
+        These plots describe how the transit and driving have evolved. At the left, it is explained using the change as percentages respect 2020-01-13. The graph at the right corresponds to a 7-day moving average of the same data. Five countries are used as example, which you can select or deselect.
+        
+        # Indicator
+        Same indicator is used for the 8 biggest contributors. 
+        
+        # Google
+        These plots show the evolution of different services. The percentage of change is respect the data stored in 2020-02-15. You can select between different points.
+        
+        # Opensky
+        Graph which shows the total number of hours per day. The period studied starts in 2020-01-01.
+        
+        # Flightradar
+        Number of flights per day. The period studied starts in 2020-01-01. We distinguish between the total number and commercial flights.
+        
+        
+    - Other industries
+        # Emissions
+        CO2 emissions of 8 biggest contributors by other industrial combustion. Emissions are measured in Megatons.
+        This sector refers to combustion for industrial manufacturing and fuel production
+        
+        # Indicator
+        For the 8 biggest contributors, it is used the same indicator, the steel production. This graph shows us the indicator normalized. It is used in order to get a seasonality in CO2 emissions.
+        
+    - Other sectors (no images)
+   
+    
+    
+    
+    

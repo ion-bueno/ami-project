@@ -1,0 +1,4 @@
+Country or Territory;Station Name;WMO Station Number;National Station Id Number;Period;Element-Statistic Qualifier Code;Statistic Description;Unit;Jan;Jan Footnotes;Feb;Feb Footnotes;Mar;Mar Footnotes;Apr;Apr Footnotes;May;May Footnotes;Jun;Jun Footnotes;Jul;Jul Footnotes;Aug;Aug Footnotes;Sep;Sep Footnotes;Oct;Oct Footnotes;Nov;Nov Footnotes;Dec;Dec Footnotes;Annual;Annual Footnotes;Annual;Annual NCDC Computed Value Footnotes
+SLOVAKIA;HURBANOVO;11858;;1961-1990;;Mean Monthly Value;mm;33.9;;34.0;;26.6;;38.8;;55.3;;60.8;;50.7;;57.0;;38.9;;32.2;;53.7;;39.8;;-9999.9;1;521.7;
+SLOVAKIA;SLIAC;11903;;1961-1990;;Mean Monthly Value;mm;43.6;;44.3;;41.8;;47.4;;63.6;;85.2;;58.9;;69.2;;56.2;;50.4;;69.1;;56.6;;-9999.9;1;686.3;
+SLOVAKIA;POPRAD;11934;;1961-1990;;Mean Monthly Value;mm;23.2;;24.7;;27.2;;43.3;;73.9;;89.7;;68.4;;68.3;;48.9;;38.3;;44.7;;28.6;;-9999.9;1;579.2;

@@ -1,0 +1,5 @@
+Country or Territory;Station Name;WMO Station Number;Period;Statistic Description;Unit;Jan;Feb;Mar;Apr;May;Jun;Jul;Aug;Sep;Oct;Nov;Dec;Annual
+CZECH REPUBLIC;Cheb;11406;1961-1990;Mean Monthly Value;mm;36.1;29.5;36.3;38.3;56.0;66.9;59.2;66.5;48.4;37.5;41.1;43.9;559.8
+CZECH REPUBLIC;Praha 6, Ruzyne;11518;1961-1990;Mean Monthly Value;mm;23.6;22.6;28.1;38.2;77.2;72.7;66.2;69.6;40.4;30.5;31.9;25.3;526.2
+CZECH REPUBLIC;Brno 4, Turany;11723;1961-1990;Mean Monthly Value;mm;24.5;23.7;24.2;31.5;60.9;72.0;64.0;56.5;37.6;30.5;37.5;27.1;490.1
+CZECH REPUBLIC;Mosnov, Ostrava;11782;1961-1990;Mean Monthly Value;mm;26.7;30.2;34.0;52.4;91.2;104.4;91.1;91.8;58.8;42.3;44.6;34.3;701.8

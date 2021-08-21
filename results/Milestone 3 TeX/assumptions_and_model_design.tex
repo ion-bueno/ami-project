@@ -1,0 +1,35 @@
+\section{Assumptions and Model Design}
+
+%Introduction/goal
+In this section, we want to briefly present the general assumptions and explain how we approached the issue of predicting real time $CO_2$ emissions, without having readily available emission data. The deviation from the usual emissions should then be used to find correlations with COVID-19 case numbers.%todo: Case numbers or deaths?
+
+%Materials and Methods
+The starting point of our analysis was the central question: How can we make as much use as possible from the EDGAR %todo source
+dataset, which not only provides emission data per country, but also for the different sectors transport, international aviation/shipping, buildings, other industrial combustion, other sectors and power industry? 
+
+The central hypothesis is as follows: \emph{The emissions of a sector is a function of indicators that measure the activity or demand of a specific economic branch.} We limit the overall analysis to eight important regions: USA, EU, Russia, Brazil, India, China, Japan and Canada. As some indicators are not reliably updated, we consider the first six months of 2020 as the time period of interest.
+
+\subsection{Prediction of 2020 emissions with and without the COVID-19 crisis}
+
+The goal was to find for each sector a method to extrapolate the general country trends from 2018, which is where the EDGAR data ends, to 2020. Here, we also tried to find out whether there exist a general seasonality for the emissions of a sector, and to find out which indicators work best to model the actual emission behavior. This is important as we don't want to confuse emission fluctuations in 2020 with general seasonal trends.
+
+In order to predict the actual 2020 emissions, we need to find real time indicators for each sector such as activity, prices, etc. in order to correlate them with the emissions from the past. Afterwards, the indicator can be used as a tool to predict the actual sector emissions.
+
+\subsection{Calculate the emission drop and correlate it with COVID-19 impact}
+
+From the difference of the two values for 2020, we can estimate a total drop or increase in emissions per country. This can then be correlated with COVID-19 cases. Either we directly look at the correlation to see the general impact. Or we compare the drop or increase with the individual climate goal of the country. Doing the latter, we can estimate the degree that the crisis helped reaching the goal or not.
+%Results
+
+\subsection{Discussion and external factors}
+
+In summary, the strength of this approach lies in the validity of the indicators.
+%Discussion
+External Influences, such as precipitation and other seasonal factors that impact the actual $CO_2$ concentration can be neglected. This is both a strength and a weakness of this approach, as we could not use real time $CO_2$ concentration data.
+
+%Conclusion Outlook
+
+
+
+
+
+
